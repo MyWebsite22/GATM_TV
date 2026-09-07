@@ -482,3 +482,50 @@ footer p {
     .card.popular:hover { transform: translateY(-10px); }
     .btn-download { padding: 15px 30px; font-size: 16px; }
 }
+
+/* Premium Download Button */
+.btn-download-glow {
+    display: inline-block;
+    padding: 18px 45px;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #ff0f39, #99001b);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(255, 15, 57, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-download-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, #ff0f39, #ff5e7a, #99001b, #ff0f39);
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.btn-download-glow:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 15, 57, 0.6);
+}
+
+.btn-download-glow:hover::before {
+    opacity: 1;
+    animation: glow-spin 3s linear infinite;
+}
+
+@keyframes glow-spin {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
