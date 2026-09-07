@@ -1,43 +1,61 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GATM TV - El Futuro del Entretenimiento</title>
+    <title>GATM TV | Experiencia Premium</title>
+    <!-- Google Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <nav class="navbar">
+
+    <!-- Navbar Transparente con Glassmorphism -->
+    <nav class="navbar glass-panel">
         <div class="logo">GATM <span>TV</span></div>
         <ul class="nav-links">
-            <li><a href="#caracteristicas" class="smooth-scroll">Descubre</a></li>
-            <li><a href="#planes" class="smooth-scroll">Planes</a></li>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#caracteristicas">Descubre</a></li>
+            <li><a href="#planes">Planes</a></li>
             <li><a href="https://wa.me/51904852996" target="_blank">Soporte</a></li>
         </ul>
     </nav>
 
-    <header class="hero">
-        <div class="glow-circle"></div>
+    <!-- Hero Section con Portadas Dinámicas -->
+    <header id="hero" class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="animate-up">El Universo del Streaming.<br>En tus manos.</h1>
-            <p class="animate-up delay-1">Todas tus plataformas favoritas convergen en una sola experiencia Premium. Diseñada meticulosamente para la máxima velocidad y calidad visual.</p>
-            <div class="hero-buttons animate-up delay-2">
-                <a href="#descarga" class="btn-primary smooth-scroll">Ir a Descargar (Al final) &#8595;</a>
-            </div>
+            <h1>El Universo del Streaming.</h1>
+            <p>Velocidad nativa, calidad visual insuperable y seguridad absoluta. Todo en un solo lugar.</p>
+            <button id="btnOpenModal" class="btn-primary">Descargar y Empezar</button>
         </div>
     </header>
 
-    <section id="caracteristicas" class="features hidden">
+    <!-- Banner de Seguridad -->
+    <section class="security-section">
+        <div class="security-banner glass-panel">
+            <div class="shield-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="security-text">
+                <h2>100% Seguro y Privado</h2>
+                <p>GATM TV se distribuye de manera independiente para ofrecer contenido global sin censuras. Activar "Orígenes Desconocidos" al instalar nuestro APK es un estándar en Android para plataformas privadas. Nuestra app está verificada, libre de software malicioso y optimizada para no drenar tu batería. Privacidad y seguridad garantizadas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características de la App -->
+    <section id="caracteristicas" class="features">
         <div class="feature-row">
             <div class="feature-text">
-                <h2>Diseño sin concesiones.</h2>
-                <p>Nuestra interfaz ha sido pulida hasta el último píxel para ofrecerte una navegación fluida, rápida y libre de interrupciones. Siente el poder del código nativo optimizado.</p>
+                <h2>Todo en Uno. Sin límites.</h2>
+                <p>Olvídate de pagar suscripciones individuales para Netflix, Disney, HBO y más. En GATM TV convergen miles de <strong>Películas, Series y TV en Vivo (Canales Premium)</strong> con un catálogo infinito que se actualiza a diario. Una sola app, todo el entretenimiento.</p>
             </div>
             <div class="feature-visual">
-                <div class="glass-mockup">
-                    <div class="mockup-content">
-                        <div class="mockup-screen"></div>
-                    </div>
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
                 </div>
             </div>
         </div>
@@ -48,71 +66,141 @@
                 <p>Cada licencia está vinculada criptográficamente al hardware de tu dispositivo. Tu cuenta es tuya y de nadie más. Protección total gestionada en la nube en tiempo real.</p>
             </div>
             <div class="feature-visual">
-                <div class="shield-icon">
-                    <svg viewBox="0 0 24 24" width="80" height="80" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-row">
+            <div class="feature-text">
+                <h2>Diseño sin concesiones.</h2>
+                <p>Nuestra interfaz ha sido pulida hasta el último píxel para ofrecerte una navegación fluida, rápida y libre de interrupciones. Siente el poder del código nativo optimizado.</p>
+            </div>
+            <div class="feature-visual">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="planes" class="pricing hidden">
+    <!-- Planes a tu Medida -->
+    <section id="planes" class="pricing">
         <h2 class="section-title">Planes a tu medida.</h2>
         <div class="pricing-cards">
             
-            <div class="card">
+            <div class="card glass-panel">
                 <h3>Mensual</h3>
                 <div class="price">S/ 12<span>.00</span></div>
-                <ul>
+                <ul class="plan-features">
                     <li>&#10003; Acceso total premium</li>
                     <li>&#10003; Soporte 24/7</li>
                     <li>&#10003; 1 Dispositivo (HWID)</li>
                 </ul>
-                <a href="https://wa.me/51904852996?text=Hola,%20deseo%20adquirir%20el%20plan%20Mensual%20de%2012%20soles%20para%20GATM%20TV." target="_blank" class="btn-outline">Adquirir Plan</a>
+                <button class="btn-primary-card btn-plan-trigger" data-plan="Mensual (S/ 12.00)">Adquirir Plan</button>
             </div>
 
-            <div class="card popular">
+            <div class="card glass-panel popular">
                 <div class="badge">MÁS POPULAR</div>
                 <h3>Trimestral</h3>
                 <div class="price">S/ 30<span>.00</span></div>
-                <ul>
+                <ul class="plan-features">
                     <li>&#10003; Ahorras S/ 6.00</li>
                     <li>&#10003; Acceso ininterrumpido</li>
                     <li>&#10003; Soporte Prioritario</li>
                     <li>&#10003; 1 Dispositivo (HWID)</li>
                 </ul>
-                <a href="https://wa.me/51904852996?text=Hola,%20deseo%20adquirir%20el%20plan%20Trimestral%20de%2030%20soles%20para%20GATM%20TV." target="_blank" class="btn-primary-card">Adquirir Plan</a>
+                <button class="btn-primary-card highlight btn-plan-trigger" data-plan="Trimestral (S/ 30.00)">Adquirir Plan</button>
             </div>
 
-            <div class="card">
+            <div class="card glass-panel">
                 <h3>Anual</h3>
                 <div class="price">S/ 115<span>.00</span></div>
-                <ul>
+                <ul class="plan-features">
                     <li>&#10003; Ahorras S/ 29.00</li>
                     <li>&#10003; Sin preocupaciones</li>
                     <li>&#10003; Actualizaciones VIP</li>
                     <li>&#10003; 1 Dispositivo (HWID)</li>
                 </ul>
-                <a href="https://wa.me/51904852996?text=Hola,%20deseo%20adquirir%20el%20plan%20Anual%20de%20115%20soles%20para%20GATM%20TV." target="_blank" class="btn-outline">Adquirir Plan</a>
+                <button class="btn-primary-card btn-plan-trigger" data-plan="Anual (S/ 115.00)">Adquirir Plan</button>
             </div>
 
         </div>
     </section>
 
-    <section id="descarga" class="download-section hidden">
+    <!-- Descarga -->
+    <section id="descarga" class="download-section">
         <div class="glow-circle-red"></div>
         <h2>Estás a un clic de distancia.</h2>
         <p>Instala GATM TV en tu Android o Smart TV y cambia tu forma de ver televisión.</p>
-        <!-- Descarga directa desde CDN para evitar límite de peso de Vercel -->
         <a href="https://files.catbox.moe/adczex.apk" download="GATM_2210.apk" class="btn-download-glow">DESCARGA AUTOMÁTICA (.APK)</a>
         <p class="requirements">Compatible con Android 5.0+ y Android TV.</p>
     </section>
+
+    <!-- Modal Interactivo de Compra -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+            
+            <!-- Paso 1: Planes -->
+            <div id="step1" class="modal-step active">
+                <h2>Elige tu Acceso</h2>
+                <p class="subtitle">Selecciona el plan que mejor se adapte a ti.</p>
+                <div class="plans-grid">
+                    <div class="plan-card glass-panel" data-plan="Prueba Gratis (3 días)">
+                        <h3>Prueba</h3>
+                        <div class="price">Gratis<span>/3 días</span></div>
+                    </div>
+                    <div class="plan-card glass-panel" data-plan="Mensual (S/ 12.00)">
+                        <h3>Mensual</h3>
+                        <div class="price">S/ 12<span>.00</span></div>
+                    </div>
+                    <div class="plan-card glass-panel popular" data-plan="Trimestral (S/ 30.00)">
+                        <div class="badge">Recomendado</div>
+                        <h3>Trimestral</h3>
+                        <div class="price">S/ 30<span>.00</span></div>
+                    </div>
+                    <div class="plan-card glass-panel" data-plan="Anual (S/ 115.00)">
+                        <h3>Anual</h3>
+                        <div class="price">S/ 115<span>.00</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 2: Datos para WhatsApp -->
+            <div id="step2" class="modal-step hidden">
+                <h2>Crear tu Licencia</h2>
+                <p class="subtitle">Has seleccionado: <strong id="selectedPlanText" style="color: var(--intense-red);"></strong></p>
+                
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>Nombre o Alias:</label>
+                        <input type="text" id="userName" placeholder="Ej. Carlos" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label>Código HWID (Aparece al abrir la App):</label>
+                        <input type="text" id="userHwid" placeholder="Ej. A1B2C3D4" autocomplete="off">
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="btnBack" class="btn-secondary">Volver</button>
+                        <button id="btnWhatsApp" class="btn-whatsapp">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                            Generar Solicitud
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="socials">
             <a href="https://instagram.com/gatm_2210" target="_blank">Instagram (@gatm_2210)</a>
             <a href="https://wa.me/51904852996" target="_blank">WhatsApp Soporte</a>
         </div>
-        <p>&copy; 2026 GATM TV. Todos los derechos reservados.</p>
+        <p>&copy; 2026 GATM TV. Designed exclusively for Premium Users.</p>
     </footer>
 
     <script src="assets/js/main.js"></script>
