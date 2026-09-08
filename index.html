@@ -236,7 +236,8 @@
 
             <!-- Bloque de Pago (Solo visible en planes de pago) -->
             <div id="payment-block" class="hidden bg-black/40 p-5 rounded-2xl border border-gray-800 mb-6 text-left">
-                <p class="text-sm text-gray-400 mb-3">Para tu activación, realiza el abono por Yape o BCP al siguiente número:</p>
+                <p class="text-sm text-gray-400 mb-2">Para tu activación, realiza el abono por Yape o BCP a la siguiente cuenta:</p>
+                <p class="text-sm text-gray-400 mb-3">Titular: <span class="text-white font-semibold">Gustavo Tor*</span></p>
                 
                 <div class="flex items-center justify-between bg-darkGray p-3 rounded-xl border border-gray-700">
                     <span class="text-xl font-bold text-white tracking-widest pl-2">904 852 996</span>
@@ -265,7 +266,7 @@
             aApk.click();
             document.body.removeChild(aApk);
 
-            // 2. Preparar mensaje estructurado de WhatsApp
+            // 2. Preparar mensaje estructurado de WhatsApp (DIRIGIDO AL 929944835)
             let mensaje = `Hola GATM TV, vengo de la web y deseo el plan: *${plan}*.\n\n`;
             
             if (isFree) {
@@ -282,7 +283,8 @@
             mensaje += `*(Nota: Si ya cuento con una licencia activa, solo la pegaré y le daré al botón rojo INICIAR SESIÓN).*`;
 
             const mensajeCodificado = encodeURIComponent(mensaje);
-            const whatsappUrl = `https://wa.me/51904852996?text=${mensajeCodificado}`;
+            // ENLACE DE WHATSAPP ACTUALIZADO A 929944835
+            const whatsappUrl = `https://wa.me/51929944835?text=${mensajeCodificado}`;
 
             // 3. Mostrar Interfaz Modal Inteligente
             const modal = document.getElementById('activation-modal');
@@ -301,8 +303,8 @@
             modal.classList.remove('opacity-0', 'pointer-events-none');
             modal.classList.add('show');
             
-            // Cuenta regresiva visual de 10 segundos
-            let segundos = 10;
+            // Cuenta regresiva visual de 30 segundos
+            let segundos = 30;
             countdownText.innerText = `Redirigiendo a WhatsApp en ${segundos}s para tu activación...`;
 
             const intervalo = setInterval(() => {
@@ -316,7 +318,7 @@
             }, 1000);
         }
 
-        // Función para el botón de Copiar Número
+        // Función para el botón de Copiar Número (MANTIENE EL 904852996 PARA YAPE)
         function copiarNumero() {
             navigator.clipboard.writeText("904852996");
             const btn = document.getElementById('copy-btn');
