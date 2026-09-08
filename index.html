@@ -1,198 +1,337 @@
-﻿<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GATM TV | Experiencia Premium</title>
-    <!-- Google Fonts: Inter & Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
+    <title>GATM TV | Tu Entretenimiento en un Solo Lugar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        black: '#000000',
+                        brandRed: '#E50914',
+                        darkGray: '#121212'
+                    }
+                }
+            }
+        }
+    </script>
 
-    <!-- Navbar Transparente con Glassmorphism -->
-    <nav class="navbar glass-panel">
-        <div class="logo">GATM <span>TV</span></div>
-        <ul class="nav-links">
-            <li><a href="#hero">Inicio</a></li>
-            <li><a href="#caracteristicas">Descubre</a></li>
-            <li><a href="#planes">Planes</a></li>
-            <li><a href="https://wa.me/51904852996" target="_blank">Soporte</a></li>
-        </ul>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        /* Efecto Glassmorphism */
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(229, 9, 20, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-panel:hover {
+            border-color: rgba(229, 9, 20, 0.6);
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+        /* Botones Premium */
+        .btn-red {
+            background: linear-gradient(135deg, #E50914, #9b0000);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+        }
+        .btn-red:hover {
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.7);
+            transform: scale(1.02);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+        }
+        /* Modal Animación */
+        #activation-modal {
+            transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+        }
+        .modal-content {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.9);
+        }
+        #activation-modal.show .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brandRed selection:text-white relative">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-40 glass-panel border-b-0 py-4 px-6 md:px-12 flex justify-between items-center top-0 rounded-none">
+        <div class="text-2xl font-extrabold tracking-tighter">
+            GATM <span class="text-brandRed">TV</span>
+        </div>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300">
+            <a href="#caracteristicas" class="hover:text-white transition">Características</a>
+            <a href="#instalacion" class="hover:text-white transition">Instalación Segura</a>
+            <a href="#planes" class="hover:text-white transition">Planes</a>
+        </div>
+        <a href="#planes" class="btn-red px-5 py-2 rounded-full text-sm font-semibold">Adquirir Ahora</a>
     </nav>
 
-    <!-- Hero Section con Portadas Dinámicas (Sin botón de descarga) -->
-    <header id="hero" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>El Universo del Streaming.</h1>
-            <p>Velocidad nativa, calidad visual insuperable y seguridad absoluta. Todo en un solo lugar.</p>
-        </div>
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex flex-col items-center text-center overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-brandRed rounded-full blur-[150px] opacity-20 -z-10"></div>
+        
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight max-w-4xl leading-tight mb-6">
+            El control total de tu <span class="text-brandRed text-glow">entretenimiento.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10">
+            Más de 1000 canales de TV en vivo, además de todas las series y películas de tus plataformas favoritas, centralizadas en un solo lugar. Fluidez extrema, sin caídas y en máxima calidad.
+        </p>
+        <a href="#planes" class="btn-red px-8 py-4 rounded-full text-lg font-bold flex items-center gap-2">
+            Ver Planes de Acceso
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
     </header>
 
-    <!-- Banner de Seguridad -->
-    <section class="security-section">
-        <div class="security-banner glass-panel">
-            <div class="shield-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    <!-- Características -->
+    <section id="caracteristicas" class="py-20 px-6 md:px-12 max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+        <div class="glass-panel p-8 rounded-3xl">
+            <div class="text-brandRed mb-4">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
             </div>
-            <div class="security-text">
-                <h2>100% Seguro y Privado</h2>
-                <p>GATM TV se distribuye de manera independiente para ofrecer contenido global sin censuras. Activar "Orígenes Desconocidos" al instalar nuestro APK es un estándar en Android para plataformas privadas. Nuestra app está verificada, libre de software malicioso y optimizada para no drenar tu batería. Privacidad y seguridad garantizadas.</p>
+            <h3 class="text-xl font-bold mb-3">Todo en Uno</h3>
+            <p class="text-gray-400 text-sm">Despídete de pagar múltiples suscripciones. Nuestro ecosistema unifica el contenido de las mejores plataformas de streaming del mercado mundial.</p>
+        </div>
+        <div class="glass-panel p-8 rounded-3xl">
+            <div class="text-brandRed mb-4">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">TV en Vivo Global</h3>
+            <p class="text-gray-400 text-sm">Más de 1000 canales nacionales e internacionales en vivo. Deportes, noticias, documentales y entretenimiento en tiempo real y sin retrasos.</p>
+        </div>
+        <div class="glass-panel p-8 rounded-3xl">
+            <div class="text-brandRed mb-4">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Licencia Personalizada</h3>
+            <p class="text-gray-400 text-sm">Seguridad de grado militar. Cada licencia se vincula de forma única al Hardware ID (HWID) de tu dispositivo, garantizando acceso privado y exclusivo.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Confianza e Instalación -->
+    <section id="instalacion" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto glass-panel p-10 md:p-14 rounded-[40px] text-center border-l-4 border-l-brandRed">
+            <h2 class="text-3xl font-bold mb-6">Instalación Segura y Transparente</h2>
+            <p class="text-gray-300 mb-6 text-left leading-relaxed">
+                GATM TV es una solución de gestión integral desarrollada bajo los más altos estándares de rendimiento y seguridad. Debido a nuestras funciones avanzadas de vinculación por dispositivo (HWID) para proteger tu licencia personal, nuestra aplicación se distribuye de manera independiente fuera de la Play Store.
+            </p>
+            <p class="text-gray-300 text-left leading-relaxed mb-6">
+                Para instalarla, Android te solicitará activar <strong>"Permitir instalación de fuentes desconocidas"</strong> o <strong>"Instalar aplicaciones desconocidas"</strong>. Este es un procedimiento estándar en Android para cualquier aplicación premium privada. Te garantizamos que GATM TV está 100% libre de software malicioso y diseñada exclusivamente para brindar una experiencia fluida.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 mt-8">
+                <div class="bg-black/50 p-4 rounded-2xl flex items-center gap-3 border border-gray-800">
+                    <span class="w-8 h-8 rounded-full bg-brandRed flex items-center justify-center font-bold">1</span>
+                    <span class="text-sm font-medium">Descarga la App</span>
+                </div>
+                <div class="bg-black/50 p-4 rounded-2xl flex items-center gap-3 border border-gray-800">
+                    <span class="w-8 h-8 rounded-full bg-brandRed flex items-center justify-center font-bold">2</span>
+                    <span class="text-sm font-medium">Activa permisos</span>
+                </div>
+                <div class="bg-black/50 p-4 rounded-2xl flex items-center gap-3 border border-gray-800">
+                    <span class="w-8 h-8 rounded-full bg-brandRed flex items-center justify-center font-bold">3</span>
+                    <span class="text-sm font-medium">Vincula tu HWID</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Características de la App -->
-    <section id="caracteristicas" class="features">
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>Todo en Uno. Sin límites.</h2>
-                <p>Olvídate de pagar suscripciones individuales para Netflix, Disney, HBO y más. En GATM TV convergen miles de <strong>Películas, Series y TV en Vivo (Canales Premium)</strong> con un catálogo infinito que se actualiza a diario. Una sola app, todo el entretenimiento.</p>
-            </div>
-            <div class="feature-visual">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
-                </div>
-            </div>
+    <!-- Planes de Precios -->
+    <section id="planes" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Elige tu Plan de Control</h2>
+            <p class="text-gray-400">Todos los planes incluyen catálogo completo, TV en vivo y licencia personal.</p>
         </div>
 
-        <div class="feature-row reverse">
-            <div class="feature-text">
-                <h2>Seguridad HWID.</h2>
-                <p>Cada licencia está vinculada criptográficamente al hardware de tu dispositivo. Tu cuenta es tuya y de nadie más. Protección total gestionada en la nube en tiempo real.</p>
-            </div>
-            <div class="feature-visual">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                </div>
-            </div>
-        </div>
-
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>Diseño sin concesiones.</h2>
-                <p>Nuestra interfaz ha sido pulida hasta el último píxel para ofrecerte una navegación fluida, rápida y libre de interrupciones. Siente el poder del código nativo optimizado.</p>
-            </div>
-            <div class="feature-visual">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Planes a tu Medida -->
-    <section id="planes" class="pricing">
-        <h2 class="section-title">Planes a tu medida.</h2>
-        <div class="pricing-cards">
+        <div class="grid md:grid-cols-4 gap-6">
             
-            <div class="card glass-panel trial-card">
-                <div class="badge badge-trial">NUEVO</div>
-                <h3>Prueba</h3>
-                <div class="price">Gratis<span>/3 días</span></div>
-                <ul class="plan-features">
-                    <li>&#10003; Prueba todo el catálogo</li>
-                    <li>&#10003; Calidad 4K y Full HD</li>
-                    <li>&#10003; 1 Dispositivo (HWID)</li>
+            <!-- Prueba Gratis -->
+            <div class="glass-panel plan-card p-8 rounded-3xl flex flex-col cursor-pointer" onclick="activarPlan('Prueba Gratis (3 Días)')">
+                <h3 class="text-xl font-semibold mb-2 text-gray-300">Prueba Demo</h3>
+                <div class="text-4xl font-bold mb-6 text-white">S/ 0<span class="text-lg text-gray-500 font-normal"> / 3 días</span></div>
+                <ul class="text-sm text-gray-400 space-y-3 mb-8 flex-1">
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Acceso al catálogo</li>
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Sin compromisos</li>
                 </ul>
-                <button class="btn-primary-card btn-plan-trigger" data-plan="Prueba Gratis" data-price="0">Solicitar Prueba</button>
+                <button class="w-full bg-white/10 text-white font-semibold py-3 rounded-xl border border-white/20">Solicitar Prueba</button>
             </div>
 
-            <div class="card glass-panel">
-                <h3>Mensual</h3>
-                <div class="price">S/ 12<span>.00</span></div>
-                <ul class="plan-features">
-                    <li>&#10003; Acceso total premium</li>
-                    <li>&#10003; Soporte 24/7</li>
-                    <li>&#10003; 1 Dispositivo (HWID)</li>
+            <!-- Mensual -->
+            <div class="glass-panel plan-card p-8 rounded-3xl flex flex-col relative border-brandRed/50 transform md:-translate-y-4 cursor-pointer" onclick="activarPlan('Mensual (S/ 12.00)')">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brandRed text-xs font-bold px-3 py-1 rounded-full w-max shadow-lg shadow-brandRed/30">EL MÁS POPULAR</div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Mensual</h3>
+                <div class="text-4xl font-bold mb-6 text-white">S/ 12<span class="text-lg text-gray-500 font-normal"> / mes</span></div>
+                <ul class="text-sm text-gray-400 space-y-3 mb-8 flex-1">
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> +1000 Canales Premium</li>
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Series y Estrenos</li>
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Licencia HWID Segura</li>
                 </ul>
-                <button class="btn-primary-card btn-plan-trigger" data-plan="Mensual" data-price="12.00">Adquirir Plan</button>
+                <button class="w-full btn-red text-white font-bold py-3 rounded-xl">Seleccionar</button>
             </div>
 
-            <div class="card glass-panel popular">
-                <div class="badge">MÁS POPULAR</div>
-                <h3>Trimestral</h3>
-                <div class="price">S/ 30<span>.00</span></div>
-                <ul class="plan-features">
-                    <li>&#10003; Ahorras S/ 6.00</li>
-                    <li>&#10003; Acceso ininterrumpido</li>
-                    <li>&#10003; Soporte Prioritario</li>
+            <!-- Trimestral -->
+            <div class="glass-panel plan-card p-8 rounded-3xl flex flex-col cursor-pointer" onclick="activarPlan('Trimestral (S/ 30.00)')">
+                <h3 class="text-xl font-semibold mb-2 text-gray-300">Trimestral</h3>
+                <div class="text-4xl font-bold mb-6 text-white">S/ 30<span class="text-lg text-gray-500 font-normal"> / 3 meses</span></div>
+                <ul class="text-sm text-gray-400 space-y-3 mb-8 flex-1">
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Ahorro de S/ 6.00</li>
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Todo el catálogo VIP</li>
                 </ul>
-                <button class="btn-primary-card highlight btn-plan-trigger" data-plan="Trimestral" data-price="30.00">Adquirir Plan</button>
+                <button class="w-full bg-white/10 text-white font-semibold py-3 rounded-xl border border-white/20">Seleccionar</button>
             </div>
 
-            <div class="card glass-panel">
-                <h3>Anual</h3>
-                <div class="price">S/ 115<span>.00</span></div>
-                <ul class="plan-features">
-                    <li>&#10003; Ahorras S/ 29.00</li>
-                    <li>&#10003; Sin preocupaciones</li>
-                    <li>&#10003; Actualizaciones VIP</li>
+            <!-- Anual -->
+            <div class="glass-panel plan-card p-8 rounded-3xl flex flex-col cursor-pointer" onclick="activarPlan('Anual (S/ 115.00)')">
+                <h3 class="text-xl font-semibold mb-2 text-gray-300">Anual</h3>
+                <div class="text-4xl font-bold mb-6 text-white">S/ 115<span class="text-lg text-gray-500 font-normal"> / año</span></div>
+                <ul class="text-sm text-gray-400 space-y-3 mb-8 flex-1">
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Máximo ahorro</li>
+                    <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brandRed" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Servicio ininterrumpido</li>
                 </ul>
-                <button class="btn-primary-card btn-plan-trigger" data-plan="Anual" data-price="115.00">Adquirir Plan</button>
+                <button class="w-full bg-white/10 text-white font-semibold py-3 rounded-xl border border-white/20">Seleccionar</button>
             </div>
-
         </div>
     </section>
 
-    <!-- Descarga Inferior -->
-    <section id="descarga" class="download-section">
-        <div class="glow-circle-red"></div>
-        <h2>Estás a un clic de distancia.</h2>
-        <p>Instala GATM TV en tu Android o Smart TV y cambia tu forma de ver televisión.</p>
-        <a href="https://files.catbox.moe/adczex.apk" download="GATM_2210.apk" class="btn-download-glow">DESCARGA AUTOMÁTICA (.APK)</a>
-        <p class="requirements">Compatible con Android 5.0+ y Android TV.</p>
-    </section>
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-10 mt-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter mb-4 md:mb-0">
+                GATM <span class="text-brandRed">TV</span>
+            </div>
+            <div class="text-sm text-gray-500 text-center md:text-left">
+                <p>Pagos 100% seguros mediante Yape y BCP.</p>
+                <p>&copy; 2026 GATM TV. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Modal Simplificado y Directo -->
-    <div id="purchaseModal" class="modal">
-        <div class="modal-content glass-panel" style="max-width: 500px;">
-            <span class="close-modal">&times;</span>
+    <!-- Overlay Modal Inteligente -->
+    <div id="activation-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none px-4">
+        <div class="modal-content glass-panel p-8 md:p-10 rounded-[30px] max-w-md w-full text-center border border-brandRed/40 relative shadow-[0_0_50px_rgba(229,9,20,0.2)]">
             
-            <h2 id="modalTitle">Completar Solicitud</h2>
-            <p class="subtitle">Plan seleccionado: <strong id="modalPlanName" style="color: var(--intense-red);"></strong></p>
+            <div class="flex justify-center mb-4">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brandRed"></div>
+            </div>
             
-            <!-- Recopilación de Datos (Siempre visible) -->
-            <div class="form-container">
-                <div class="form-group">
-                    <label>Tu Nombre o Alias:</label>
-                    <input type="text" id="userName" placeholder="Ej. Carlos" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label>Tu Código HWID (Aparece al abrir la App):</label>
-                    <input type="text" id="userHwid" placeholder="Ej. A1B2C3D4" autocomplete="off">
+            <h3 class="text-2xl font-bold mb-2 text-white">Preparando tu Plan...</h3>
+            <p id="modal-subtitle" class="text-gray-300 text-sm mb-6">Iniciando descarga segura de la aplicación.</p>
+
+            <!-- Bloque de Pago (Solo visible en planes de pago) -->
+            <div id="payment-block" class="hidden bg-black/40 p-5 rounded-2xl border border-gray-800 mb-6 text-left">
+                <p class="text-sm text-gray-400 mb-3">Para tu activación, realiza el abono por Yape o BCP al siguiente número:</p>
+                
+                <div class="flex items-center justify-between bg-darkGray p-3 rounded-xl border border-gray-700">
+                    <span class="text-xl font-bold text-white tracking-widest pl-2">904 852 996</span>
+                    <button id="copy-btn" onclick="copiarNumero()" class="text-brandRed hover:text-white transition px-4 py-2 bg-brandRed/10 hover:bg-brandRed rounded-lg text-xs font-bold uppercase">
+                        Copiar
+                    </button>
                 </div>
             </div>
 
-            <!-- Contenedor QR (Solo para pagos) -->
-            <div id="qrSection" class="qr-container" style="display: none; width: 100%; text-align: center; margin-top: 20px;">
-                <img src="assets/img/qr.png" alt="Código QR Yape" class="qr-image" style="width: 150px; height: 150px;">
-                <div class="qr-instruction" style="text-align: center; margin-top: 10px;">
-                    <p>Escanea y Yapea: <strong id="modalPriceText" style="color: var(--whatsapp-green); font-size: 1.2rem;">S/ 0.00</strong></p>
-                    <p style="font-size: 0.85rem;">(Adjunta la captura en WhatsApp al finalizar)</p>
-                </div>
-            </div>
-
-            <div class="action-buttons" style="margin-top: 30px;">
-                <button id="btnActionWhatsApp" class="btn-whatsapp" style="width: 100%;">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    <span id="btnWhatsAppText">Enviar WhatsApp</span>
-                </button>
-            </div>
+            <p id="countdown-text" class="text-brandRed font-semibold text-sm"></p>
         </div>
     </div>
 
-    <footer>
-        <div class="socials">
-            <a href="https://instagram.com/gatm_2210" target="_blank">Instagram (@gatm_2210)</a>
-            <a href="https://wa.me/51904852996" target="_blank">WhatsApp Soporte</a>
-        </div>
-        <p>&copy; 2026 GATM TV. Designed exclusively for Premium Users.</p>
-    </footer>
+    <!-- Script de Lógica -->
+    <script>
+        function activarPlan(plan) {
+            const isFree = plan.includes('Prueba');
 
-    <script src="assets/js/main.js"></script>
+            // 1. Descarga del APK (Para todos los planes)
+            const apkUrl = "https://files.catbox.moe/adczex.apk"; 
+            const aApk = document.createElement('a');
+            aApk.href = apkUrl;
+            aApk.target = "_blank"; 
+            aApk.download = "GATM_TV.apk";
+            document.body.appendChild(aApk);
+            aApk.click();
+            document.body.removeChild(aApk);
+
+            // 2. Preparar mensaje estructurado de WhatsApp
+            let mensaje = `Hola GATM TV, vengo de la web y deseo el plan: *${plan}*.\n\n`;
+            
+            if (isFree) {
+                mensaje += `Ya inició la descarga de la app.\n\n*Pasos que seguiré para activar mi prueba:*\n`;
+                mensaje += `1️⃣ Instalaré la aplicación.\n`;
+                mensaje += `2️⃣ Le daré al botón verde *ADQUIRIR ACCESO* para obtener mi HWID.\n`;
+                mensaje += `3️⃣ Te enviaré ese HWID por aquí para que actives mi dispositivo.\n\n`;
+            } else {
+                mensaje += `Ya inició la descarga de la app.\n\n*Pasos que seguiré para mi activación:*\n`;
+                mensaje += `1️⃣ Instalaré la aplicación.\n`;
+                mensaje += `2️⃣ Le daré al botón verde *ADQUIRIR ACCESO* para obtener mi HWID.\n`;
+                mensaje += `3️⃣ Te enviaré ese HWID por aquí junto con la captura de pago (Yape/BCP).\n\n`;
+            }
+            mensaje += `*(Nota: Si ya cuento con una licencia activa, solo la pegaré y le daré al botón rojo INICIAR SESIÓN).*`;
+
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            const whatsappUrl = `https://wa.me/51904852996?text=${mensajeCodificado}`;
+
+            // 3. Mostrar Interfaz Modal Inteligente
+            const modal = document.getElementById('activation-modal');
+            const paymentBlock = document.getElementById('payment-block');
+            const countdownText = document.getElementById('countdown-text');
+            const modalSubtitle = document.getElementById('modal-subtitle');
+
+            // Configurar qué se muestra en el modal según el plan
+            if (isFree) {
+                paymentBlock.classList.add('hidden');
+            } else {
+                paymentBlock.classList.remove('hidden');
+            }
+
+            // Animar entrada del modal
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('show');
+            
+            // Cuenta regresiva visual de 10 segundos
+            let segundos = 10;
+            countdownText.innerText = `Redirigiendo a WhatsApp en ${segundos}s para tu activación...`;
+
+            const intervalo = setInterval(() => {
+                segundos--;
+                countdownText.innerText = `Redirigiendo a WhatsApp en ${segundos}s para tu activación...`;
+                
+                if (segundos <= 0) {
+                    clearInterval(intervalo);
+                    window.location.href = whatsappUrl; 
+                }
+            }, 1000);
+        }
+
+        // Función para el botón de Copiar Número
+        function copiarNumero() {
+            navigator.clipboard.writeText("904852996");
+            const btn = document.getElementById('copy-btn');
+            const textoOriginal = btn.innerText;
+            
+            btn.innerText = "¡COPIADO!";
+            btn.classList.remove('bg-brandRed/10', 'text-brandRed');
+            btn.classList.add('bg-green-600', 'text-white', 'border-green-600');
+            
+            setTimeout(() => {
+                btn.innerText = textoOriginal;
+                btn.classList.add('bg-brandRed/10', 'text-brandRed');
+                btn.classList.remove('bg-green-600', 'text-white', 'border-green-600');
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
